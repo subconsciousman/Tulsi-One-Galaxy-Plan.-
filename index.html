@@ -1,185 +1,306 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tulsi One Galaxy Plan - Earnings Calculator</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        tulsi: { 50: '#f0fdf4', 500: '#22c55e', 600: '#16a34a', 700: '#15803d', 800: '#166534', 900: '#14532d' }
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              tulsi: {
+                50: "#f0fdf4",
+                500: "#22c55e",
+                600: "#16a34a",
+                700: "#15803d",
+                800: "#166534",
+                900: "#14532d",
+              },
+            },
+          },
+        },
+      };
     </script>
-</head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between">
-
+  </head>
+  <body
+    class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between"
+  >
     <!-- Header -->
     <header class="bg-tulsi-900 text-white shadow-md py-6 px-4 text-center">
-        <h1 class="text-2xl sm:text-3xl font-bold tracking-wide">Tulsi One Galaxy Plan</h1>
-        <p class="text-tulsi-50 text-sm mt-1">Interactive Income Estimator & Calculator</p>
+      <h1 class="text-2xl sm:text-3xl font-bold tracking-wide">
+        Tulsi One Galaxy Plan
+      </h1>
+      <p class="text-tulsi-50 text-sm mt-1">
+        Interactive Income Estimator & Calculator
+      </p>
     </header>
 
     <!-- Main Container -->
-    <main class="max-w-4xl w-full mx-auto p-4 sm:p-6 my-6 flex-grow grid grid-cols-1 md:grid-cols-2 gap-6">
-        
-        <!-- Input Section -->
-        <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-sm border border-slate-200">
-            <h2 class="text-lg font-semibold text-tulsi-900 mb-4 border-b pb-2">Your Business Metrics</h2>
-            
-            <div class="space-y-4">
-                <!-- Retail Sales -->
-                <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-1">Monthly Retail Sales Volume (MRP Value)</label>
-                    <input type="number" id="retailSales" value="10000" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-tulsi-600 focus:outline-none" placeholder="Enter MRP value">
-                    <p class="text-xs text-slate-500 mt-1">Estimated Retail Profit ~30% margin</p>
-                </div>
+    <main
+      class="max-w-4xl w-full mx-auto p-4 sm:p-6 my-6 flex-grow grid grid-cols-1 md:grid-cols-2 gap-6"
+    >
+      <!-- Input Section -->
+      <div
+        class="bg-white p-5 sm:p-6 rounded-2xl shadow-sm border border-slate-200"
+      >
+        <h2 class="text-lg font-semibold text-tulsi-900 mb-4 border-b pb-2">
+          Your Business Metrics
+        </h2>
 
-                <!-- Cumulative Group RV -->
-                <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-1">Lifetime Accumulated Group RV</label>
-                    <input type="number" id="groupRV" value="30000" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-tulsi-600 focus:outline-none" placeholder="Total Group RV">
-                    <p class="text-xs text-slate-500 mt-1">Slabs: 0-24k (5%), 25k-99k (10%), 100k+ (15%)</p>
-                </div>
+        <div class="space-y-4">
+          <!-- Retail Sales -->
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1"
+              >Monthly Retail Sales Volume (MRP Value)</label
+            >
+            <input
+              type="number"
+              id="retailSales"
+              value="10000"
+              class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-tulsi-600 focus:outline-none"
+              placeholder="Enter MRP value"
+            />
+            <p class="text-xs text-slate-500 mt-1">
+              Estimated Retail Profit ~30% margin
+            </p>
+          </div>
 
-                <!-- Proposed Advisors Earnings -->
-                <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-1">Total Earnings of Directly Proposed Advisors</label>
-                    <input type="number" id="proposedEarnings" value="50000" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-tulsi-600 focus:outline-none" placeholder="Earnings of downlines">
-                    <p class="text-xs text-slate-500 mt-1">Eligible for 5% Proposer Income</p>
-                </div>
+          <!-- Cumulative Group RV -->
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1"
+              >Lifetime Accumulated Group RV</label
+            >
+            <input
+              type="number"
+              id="groupRV"
+              value="30000"
+              class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-tulsi-600 focus:outline-none"
+              placeholder="Total Group RV"
+            />
+            <p class="text-xs text-slate-500 mt-1">
+              Slabs: 0-24k (5%), 25k-99k (10%), 100k+ (15%)
+            </p>
+          </div>
 
-                <!-- Annual Self RV for Loyalty -->
-                <div>
-                    <label class="block text-sm font-medium text-slate-700 mb-1">Annual Accumulated Self RV (Loyalty)</label>
-                    <select id="selfRV" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-tulsi-600 focus:outline-none">
-                        <option value="0">Below 2,00,000 RV (₹0)</option>
-                        <option value="10000">2,00,000 RV (₹10,000 Bonus)</option>
-                        <option value="22500">4,00,000 RV (₹22,500 Bonus)</option>
-                        <option value="35000" selected>6,00,000 RV (₹35,000 Bonus)</option>
-                        <option value="50000">8,00,000 RV (₹50,000 Bonus)</option>
-                        <option value="65000">10,00,000+ RV (₹65,000 Bonus)</option>
-                    </select>
-                </div>
+          <!-- Proposed Advisors Earnings -->
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1"
+              >Total Earnings of Directly Proposed Advisors</label
+            >
+            <input
+              type="number"
+              id="proposedEarnings"
+              value="50000"
+              class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-tulsi-600 focus:outline-none"
+              placeholder="Earnings of downlines"
+            />
+            <p class="text-xs text-slate-500 mt-1">
+              Eligible for 5% Proposer Income
+            </p>
+          </div>
 
-                <!-- Pool & Leadership Bonus Estimates -->
-                <div class="grid grid-cols-2 gap-3 pt-2">
-                    <div>
-                        <label class="block text-xs font-medium text-slate-700 mb-1">Foundation Points</label>
-                        <input type="number" id="foundationPoints" value="10" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-medium text-slate-700 mb-1">Est. FPV / LPV Value (₹)</label>
-                        <input type="number" id="pointValue" value="500" class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm">
-                    </div>
-                </div>
-            </div>
-        </div>
+          <!-- Annual Self RV for Loyalty -->
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1"
+              >Annual Accumulated Self RV (Loyalty)</label
+            >
+            <select
+              id="selfRV"
+              class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-tulsi-600 focus:outline-none"
+            >
+              <option value="0">Below 2,00,000 RV (₹0)</option>
+              <option value="10000">2,00,000 RV (₹10,000 Bonus)</option>
+              <option value="22500">4,00,000 RV (₹22,500 Bonus)</option>
+              <option value="35000" selected>
+                6,00,000 RV (₹35,000 Bonus)
+              </option>
+              <option value="50000">8,00,000 RV (₹50,000 Bonus)</option>
+              <option value="65000">10,00,000+ RV (₹65,000 Bonus)</option>
+            </select>
+          </div>
 
-        <!-- Output / Results Section -->
-        <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+          <!-- Pool & Leadership Bonus Estimates -->
+          <div class="grid grid-cols-2 gap-3 pt-2">
             <div>
-                <h2 class="text-lg font-semibold text-tulsi-900 mb-4 border-b pb-2">Estimated Payout Breakdown</h2>
-                
-                <div class="space-y-3 text-sm">
-                    <div class="flex justify-between py-1 border-b border-slate-100">
-                        <span class="text-slate-600">1. Retail Profit (Est. 30%):</span>
-                        <span id="resRetail" class="font-semibold text-slate-900">₹0</span>
-                    </div>
-                    <div class="flex justify-between py-1 border-b border-slate-100">
-                        <span class="text-slate-600">2. Performance Bonus (<span id="slabRate">10%</span>):</span>
-                        <span id="resPerformance" class="font-semibold text-slate-900">₹0</span>
-                    </div>
-                    <div class="flex justify-between py-1 border-b border-slate-100">
-                        <span class="text-slate-600">3. Proposer Income (5%):</span>
-                        <span id="resProposer" class="font-semibold text-slate-900">₹0</span>
-                    </div>
-                    <div class="flex justify-between py-1 border-b border-slate-100">
-                        <span class="text-slate-600">4. Loyalty Bonus (Monthly prorated):</span>
-                        <span id="resLoyalty" class="font-semibold text-slate-900">₹0</span>
-                    </div>
-                    <div class="flex justify-between py-1 border-b border-slate-100">
-                        <span class="text-slate-600">5. Foundation / Legacy Pools:</span>
-                        <span id="resPool" class="font-semibold text-slate-900">₹0</span>
-                    </div>
-                </div>
+              <label class="block text-xs font-medium text-slate-700 mb-1"
+                >Foundation Points</label
+              >
+              <input
+                type="number"
+                id="foundationPoints"
+                value="10"
+                class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm"
+              />
             </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1"
+                >Est. FPV / LPV Value (₹)</label
+              >
+              <input
+                type="number"
+                id="pointValue"
+                value="500"
+                class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
 
-            <!-- Total Box -->
-            <div class="mt-6 bg-tulsi-50 border border-tulsi-200 p-4 rounded-xl text-center">
-                <span class="block text-xs uppercase tracking-wider text-tulsi-800 font-semibold">Total Estimated Monthly Earnings</span>
-                <span id="resTotal" class="text-2xl sm:text-3xl font-extrabold text-tulsi-900 mt-1 block">₹0</span>
+      <!-- Output / Results Section -->
+      <div
+        class="bg-white p-5 sm:p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between"
+      >
+        <div>
+          <h2 class="text-lg font-semibold text-tulsi-900 mb-4 border-b pb-2">
+            Estimated Payout Breakdown
+          </h2>
+
+          <div class="space-y-3 text-sm">
+            <div class="flex justify-between py-1 border-b border-slate-100">
+              <span class="text-slate-600">1. Retail Profit (Est. 30%):</span>
+              <span id="resRetail" class="font-semibold text-slate-900"
+                >₹0</span
+              >
             </div>
+            <div class="flex justify-between py-1 border-b border-slate-100">
+              <span class="text-slate-600"
+                >2. Performance Bonus (<span id="slabRate">10%</span>):</span
+              >
+              <span id="resPerformance" class="font-semibold text-slate-900"
+                >₹0</span
+              >
+            </div>
+            <div class="flex justify-between py-1 border-b border-slate-100">
+              <span class="text-slate-600">3. Proposer Income (5%):</span>
+              <span id="resProposer" class="font-semibold text-slate-900"
+                >₹0</span
+              >
+            </div>
+            <div class="flex justify-between py-1 borde r-b border-slate-100">
+              <span class="text-slate-600"
+                >4. Loyalty Bonus (Monthly prorated):</span
+              >
+              <span id="resLoyalty" class="font-semibold text-slate-900"
+                >₹0</span
+              >
+            </div>
+            <div class="flex justify-between py-1 border-b border-slate-100">
+              <span class="text-slate-600">5. Foundation / Legacy Pools:</span>
+              <span id="resPool" class="font-semibold text-slate-900">₹0</span>
+            </div>
+          </div>
         </div>
 
+        <!-- Total Box -->
+        <div
+          class="mt-6 bg-tulsi-50 border border-tulsi-200 p-4 rounded-xl text-center"
+        >
+          <span
+            class="block text-xs uppercase tracking-wider text-tulsi-800 font-semibold"
+            >Total Estimated Monthly Earnings</span
+          >
+          <span
+            id="resTotal"
+            class="text-2xl sm:text-3xl font-extrabold text-tulsi-900 mt-1 block"
+            >₹0</span
+          >
+        </div>
+      </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white border-t border-slate-200 text-center py-4 text-xs text-slate-500">
-        <p>Tulsi One Galaxy Plan Calculator — Designed for Leaders & Advisors.</p>
+    <footer
+      class="bg-white border-t border-slate-200 text-center py-4 text-xs text-slate-500"
+    >
+      <p>
+        Tulsi One Galaxy Plan Calculator — Designed for Leaders & Advisors by
+        N.Jalal.
+      </p>
     </footer>
 
     <!-- Calculation Script -->
     <script>
-        function calculateEarnings() {
-            const retailSales = parseFloat(document.getElementById('retailSales').value) || 0;
-            const groupRV = parseFloat(document.getElementById('groupRV').value) || 0;
-            const proposedEarnings = parseFloat(document.getElementById('proposedEarnings').value) || 0;
-            const loyaltyAnnual = parseFloat(document.getElementById('selfRV').value) || 0;
-            const foundationPoints = parseFloat(document.getElementById('foundationPoints').value) || 0;
-            const pointValue = parseFloat(document.getElementById('pointValue').value) || 0;
+      function calculateEarnings() {
+        const retailSales =
+          parseFloat(document.getElementById("retailSales").value) || 0;
+        const groupRV =
+          parseFloat(document.getElementById("groupRV").value) || 0;
+        const proposedEarnings =
+          parseFloat(document.getElementById("proposedEarnings").value) || 0;
+        const loyaltyAnnual =
+          parseFloat(document.getElementById("selfRV").value) || 0;
+        const foundationPoints =
+          parseFloat(document.getElementById("foundationPoints").value) || 0;
+        const pointValue =
+          parseFloat(document.getElementById("pointValue").value) || 0;
 
-            // 1. Retail Profit (Assuming ~30% average spread between MRP and DP)
-            const retailProfit = retailSales * 0.30;
+        // 1. Retail Profit (Assuming ~30% average spread between MRP and DP)
+        const retailProfit = retailSales * 0.3;
 
-            // 2. Performance Bonus Slabs
-            let slabPercent = 0.05;
-            let slabText = "5%";
-            if (groupRV >= 100000) {
-                slabPercent = 0.15;
-                slabText = "15%";
-            } else if (groupRV >= 25000) {
-                slabPercent = 0.10;
-                slabText = "10%";
-            }
-            // Performance bonus calculated roughly on group volume value or performance slab metric
-            const performanceBonus = groupRV * slabPercent * 0.1; // Estimated payout factor
-
-            // 3. Proposer Income (5%)
-            const proposerIncome = proposedEarnings * 0.05;
-
-            // 4. Loyalty Bonus (Prorated monthly from annual value)
-            const loyaltyMonthly = loyaltyAnnual / 12;
-
-            // 5. Foundation / Pool Bonus
-            const poolBonus = foundationPoints * pointValue;
-
-            // Total Monthly Payout
-            const totalMonthly = retailProfit + performanceBonus + proposerIncome + loyaltyMonthly + poolBonus;
-
-            // Update UI
-            document.getElementById('slabRate').innerText = slabText;
-            document.getElementById('resRetail').innerText = '₹' + retailProfit.toLocaleString('en-IN', {maximumFractionDigits: 0});
-            document.getElementById('resPerformance').innerText = '₹' + performanceBonus.toLocaleString('en-IN', {maximumFractionDigits: 0});
-            document.getElementById('resProposer').innerText = '₹' + proposerIncome.toLocaleString('en-IN', {maximumFractionDigits: 0});
-            document.getElementById('resLoyalty').innerText = '₹' + loyaltyMonthly.toLocaleString('en-IN', {maximumFractionDigits: 0});
-            document.getElementById('resPool').innerText = '₹' + poolBonus.toLocaleString('en-IN', {maximumFractionDigits: 0});
-            document.getElementById('resTotal').innerText = '₹' + totalMonthly.toLocaleString('en-IN', {maximumFractionDigits: 0});
+        // 2. Performance Bonus Slabs
+        let slabPercent = 0.05;
+        let slabText = "5%";
+        if (groupRV >= 100000) {
+          slabPercent = 0.15;
+          slabText = "15%";
+        } else if (groupRV >= 25000) {
+          slabPercent = 0.1;
+          slabText = "10%";
         }
+        // Performance bonus calculated roughly on group volume value or performance slab metric
+        const performanceBonus = groupRV * slabPercent * 0.1; // Estimated payout factor
 
-        // Attach listeners to inputs
-        document.querySelectorAll('input, select').forEach(element => {
-            element.addEventListener('input', calculateEarnings);
-        });
+        // 3. Proposer Income (5%)
+        const proposerIncome = proposedEarnings * 0.05;
 
-        // Run on load
-        calculateEarnings();
+        // 4. Loyalty Bonus (Prorated monthly from annual value)
+        const loyaltyMonthly = loyaltyAnnual / 12;
+
+        // 5. Foundation / Pool Bonus
+        const poolBonus = foundationPoints * pointValue;
+
+        // Total Monthly Payout
+        const totalMonthly =
+          retailProfit +
+          performanceBonus +
+          proposerIncome +
+          loyaltyMonthly +
+          poolBonus;
+
+        // Update UI
+        document.getElementById("slabRate").innerText = slabText;
+        document.getElementById("resRetail").innerText =
+          "₹" +
+          retailProfit.toLocaleString("en-IN", { maximumFractionDigits: 0 });
+        document.getElementById("resPerformance").innerText =
+          "₹" +
+          performanceBonus.toLocaleString("en-IN", {
+            maximumFractionDigits: 0,
+          });
+        document.getElementById("resProposer").innerText =
+          "₹" +
+          proposerIncome.toLocaleString("en-IN", { maximumFractionDigits: 0 });
+        document.getElementById("resLoyalty").innerText =
+          "₹" +
+          loyaltyMonthly.toLocaleString("en-IN", { maximumFractionDigits: 0 });
+        document.getElementById("resPool").innerText =
+          "₹" + poolBonus.toLocaleString("en-IN", { maximumFractionDigits: 0 });
+        document.getElementById("resTotal").innerText =
+          "₹" +
+          totalMonthly.toLocaleString("en-IN", { maximumFractionDigits: 0 });
+      }
+
+      // Attach listeners to inputs
+      document.querySelectorAll("input, select").forEach((element) => {
+        element.addEventListener("input", calculateEarnings);
+      });
+
+      // Run on load
+      calculateEarnings();
     </script>
-</body>
+  </body>
 </html>
